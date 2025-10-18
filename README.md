@@ -49,12 +49,21 @@ A modern, interactive web application that helps you discover your perfect dog c
    npm install
    ```
 
-3. **Start the development server**
+3. **Set up environment variables (optional)**
+   ```bash
+   # Copy the example environment file
+   cp .env.example .env
+   
+   # Edit .env with your actual values (if needed)
+   # Note: The Dog CEO API is free and doesn't require an API key
+   ```
+
+4. **Start the development server**
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
+5. **Open your browser**
    Navigate to `http://localhost:5173` (or the port shown in your terminal)
 
 ### Available Scripts
@@ -144,6 +153,12 @@ The app generates realistic attributes to provide comprehensive dog information:
 - **API Integration**: Fetch API for HTTP requests
 - **Responsive Design**: CSS Grid and Flexbox layouts
 
+### Security & Environment Variables
+- **Environment Variables**: Sensitive data stored in `.env` files
+- **Git Protection**: `.gitignore` prevents accidental commits of secrets
+- **API Security**: No API keys required for Dog CEO API
+- **Best Practices**: Example environment file provided for setup
+
 ### Performance Optimizations
 - **Lazy Loading**: Images load as needed
 - **State Optimization**: Minimal re-renders
@@ -186,6 +201,30 @@ The app generates realistic attributes to provide comprehensive dog information:
 - **Performance**: Image optimization and caching
 - **Accessibility**: Enhanced screen reader support
 - **PWA**: Progressive Web App features
+
+## 🔒 Security Best Practices
+
+### Environment Variables
+- **Never commit `.env` files**: They contain sensitive information
+- **Use `.env.example`**: Show required variables without exposing values
+- **Git protection**: `.gitignore` automatically excludes environment files
+- **API keys**: Store in environment variables, never in code
+
+### Safe Development
+```bash
+# ✅ Good: Use environment variables
+const apiKey = import.meta.env.VITE_API_KEY
+
+# ❌ Bad: Never hardcode secrets
+const apiKey = "sk-1234567890abcdef"
+```
+
+### File Protection
+The `.gitignore` file protects:
+- `.env` - Environment variables
+- `.env.local` - Local environment overrides
+- `*.key` - Private key files
+- `secrets.json` - Configuration files with secrets
 
 ## 🤝 Contributing
 
